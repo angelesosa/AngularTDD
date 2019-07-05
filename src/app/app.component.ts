@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  myvar = 'Hola Mundo';
-  saludo = 'Este es un curso de Angular TDD';
   title = 'AngularTDD';
+
+  par(numero: number) {
+    return numero % 2 === 0 ? true : false;
+  }
 }

@@ -1,6 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
+// Describe brevemente que se va probar
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -16,19 +17,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  // desarrollando el primer caso de prueba
-  // Probando igualdad
-  it('El valor de myVar debe ser hola Mundo', () => {
-    const appComponent = new AppComponent();
-    const valor = appComponent.myvar;
-    expect(valor).toEqual('Hola Mundo');
+  it('Debe retornar TRUE', () => {
+    const appcomp = new AppComponent();
+    const respuesta = appcomp.par(44);
+    expect(respuesta).toBeTruthy();
   });
 
-  // Probando coincidencia
-  it('La variable debe contener Angular', () => {
-    const appComponent = new AppComponent();
-    const valor = appComponent.saludo;
-    expect(valor).toContain('Angular');
+  it('Debe retornar FALSE', () => {
+    const appcomp = new AppComponent();
+    const respuesta = appcomp.par(15);
+    expect(respuesta).toBeFalsy();
   });
 
 });
