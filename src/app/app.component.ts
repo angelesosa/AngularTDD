@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularTDD';
+  myvar = 'Hola Mundo';
 
   par(numero: number) {
     return numero % 2 === 0 ? true : false;

@@ -3,12 +3,28 @@ import { AppComponent } from './app.component';
 
 // Describe brevemente que se va probar
 describe('AppComponent', () => {
+
+  // ciclo de vida de las pruebas
+  // *1: afterAll => se ejecuta 1 sola vez despues de ejecutar los casos de prueba
+  // *2: afterEach => se ejecuta despues de cada it
+  // *3: beforeEach => se ejecuta antes de cada it
+  // *4: beforeAll => se ejecuta 1 sola vez antes de ejecutar los casos de prueba
+
+  let appComponent;
+
+  beforeAll(() => {
+    console.log('Se ejecuta al iniciar las pruebas');
+  })
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
     }).compileComponents();
+    // *->
+    appComponent = new AppComponent();
+    console.log('beforeEach');
   }));
 
   it('should create the app', () => {
@@ -17,16 +33,18 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('Debe retornar TRUE', () => {
-    const appcomp = new AppComponent();
-    const respuesta = appcomp.par(44);
-    expect(respuesta).toBeTruthy();
+  it('El valor de myVar debe ser hola Mundo', () => {
+    const valor = appComponent.myvar;
+    expect(valor).toEqual('Hola Mundo');
   });
 
-  it('Debe retornar FALSE', () => {
-    const appcomp = new AppComponent();
-    const respuesta = appcomp.par(15);
-    expect(respuesta).toBeFalsy();
+  afterEach(() => {
+    console.log('afterEach');
   });
+
+  afterAll(() => {
+    console.log('Se ejecuta al terminar las pruebas');
+  })
+
 
 });
