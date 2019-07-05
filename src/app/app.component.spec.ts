@@ -16,16 +16,19 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'AngularTDD'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('AngularTDD');
+  // desarrollando el primer caso de prueba
+  // Probando igualdad
+  it('El valor de myVar debe ser hola Mundo', () => {
+    const appComponent = new AppComponent();
+    const valor = appComponent.myvar;
+    expect(valor).toEqual('Hola Mundo');
   });
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to AngularTDD!');
+  // Probando coincidencia
+  it('La variable debe contener Angular', () => {
+    const appComponent = new AppComponent();
+    const valor = appComponent.saludo;
+    expect(valor).toContain('Angular');
   });
+
 });
