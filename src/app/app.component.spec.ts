@@ -1,14 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-// Describe brevemente que se va probar
-describe('AppComponent', () => {
+// Para agregar el focus basta con agregar la f antes del metodo:
+// - Describe => que es para probar todos los casos de prueba que se encuentre dentro
+// - it => que es para probar solamente ese caso de prueba en especifico
 
-  // ciclo de vida de las pruebas
-  // *1: afterAll => se ejecuta 1 sola vez despues de ejecutar los casos de prueba
-  // *2: afterEach => se ejecuta despues de cada it
-  // *3: beforeEach => se ejecuta antes de cada it
-  // *4: beforeAll => se ejecuta 1 sola vez antes de ejecutar los casos de prueba
+describe('AppComponent', () => {
 
   let appComponent;
 
@@ -27,7 +24,8 @@ describe('AppComponent', () => {
     console.log('beforeEach');
   }));
 
-  it('should create the app', () => {
+  // agregamos 'f' de focus
+  fit('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
