@@ -1,17 +1,20 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-// Para agregar el focus basta con agregar la f antes del metodo:
-// - Describe => que es para probar todos los casos de prueba que se encuentre dentro
-// - it => que es para probar solamente ese caso de prueba en especifico
+// *** PROBANDO SERVICIOS HTTTP ****
+
+// Creamos el servicio
+// 1. $ ng g s service/user
+// 2. importamos en servicio en nuestro modulo
+// 3. revisamos el servicio que vamos a consumir https://developer.github.com/v3/users/#get-all-users
+// o pedirle a los de backend que te den la firma (que es un item del array del json de respuesta)
+// 4. creamos la interface de la firma
+// 5. En service.spec seguimos programandp
+
 
 describe('AppComponent', () => {
 
   let appComponent;
-
-  beforeAll(() => {
-    console.log('Se ejecuta al iniciar las pruebas');
-  })
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -21,28 +24,7 @@ describe('AppComponent', () => {
     }).compileComponents();
     // *->
     appComponent = new AppComponent();
-    console.log('beforeEach');
   }));
-
-  // agregamos 'f' de focus
-  fit('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it('El valor de myVar debe ser hola Mundo', () => {
-    const valor = appComponent.myvar;
-    expect(valor).toEqual('Hola Mundo');
-  });
-
-  afterEach(() => {
-    console.log('afterEach');
-  });
-
-  afterAll(() => {
-    console.log('Se ejecuta al terminar las pruebas');
-  })
 
 
 });
