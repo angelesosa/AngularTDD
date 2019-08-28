@@ -19,7 +19,7 @@ import {
 // 5. En service.spec seguimos programandp
 
 
-describe('AppComponent', () => {
+xdescribe('AppComponent', () => {
 
   let appComponent;
   let userService;
